@@ -21,14 +21,14 @@ class AttemptComponent extends Component {
 
 	public function count($action) {
 		return $this->Attempt->count(
-			$this->Controller->request->clientIp(),
+			$this->Controller->request->clientIp(false),
 			$action
 		);
 	}
 
 	public function limit($action, $limit = 5) {
 		return $this->Attempt->limit(
-			$this->Controller->request->clientIp(),
+			$this->Controller->request->clientIp(false),
 			$action,
 			$limit
 		);
@@ -36,7 +36,7 @@ class AttemptComponent extends Component {
 
 	public function fail($action, $duration = '+10 minutes') {
 		return $this->Attempt->fail(
-			$this->Controller->request->clientIp(),
+			$this->Controller->request->clientIp(false),
 			$action,
 			$duration
 		);
@@ -44,7 +44,7 @@ class AttemptComponent extends Component {
 
 	public function reset($action) {
 		return $this->Attempt->reset(
-			$this->Controller->request->clientIp(),
+			$this->Controller->request->clientIp(false),
 			$action
 		);
 	}
